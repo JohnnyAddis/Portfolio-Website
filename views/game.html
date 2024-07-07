@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
-    <link rel = 'stylesheet' type = 'text/css' href = '/resources/contact.css'>
+    <link rel = 'stylesheet' type = 'text/css' href = '/resources/game.css'>
 </head>
 <body>
     <header>
@@ -12,13 +12,13 @@
             <ul>
                 <li><a href='/views/index.html'>About Me</a></li>
                 <li><a href='/views/projects.html'>Projects</a></li>
-                <li><a href='#'>Send me a message!</a></li>
+                <li><a href='#'>Mini Game</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="game">
-        <h2>Tic-Tac-Toe</h2>
+        <h2 id = 'tictactoe'>Tic-Tac-Toe Game vs. CPU</h2>
         <div class="game-board" id="board">
             <div class="cell" data-index="0"></div>
             <div class="cell" data-index="1"></div>
@@ -33,6 +33,7 @@
         <button id="restart">Restart Game</button>
         <p id="message"></p>
     </section>
+    
 
     <footer>
         <nav>

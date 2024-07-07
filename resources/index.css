@@ -1,19 +1,19 @@
 body{
     font-family: Calibri, Helvetica, sans-serif;
-    background-color: #f5f5f5; /* Light Gray */
+    background-color: #f5f5f5; 
     margin: 0;
     padding: 0;
 
 }
 header {
-    background-color: #b0d7dc; /* Light blue background for the header */
+    background-color: #b0d7dc; 
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding:  px; /* Reduce the padding to make the header thinner */
+    padding:  px; /*review*/
 }
 
 header nav ul {
@@ -46,7 +46,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover, header nav ul li a.active {
-    background-color: #0073e6; /* Dark blue background on hover */
+    background-color: #0073e6; 
     color: white; /* White text on hover */
     border-radius: 4px;
 }
@@ -138,9 +138,9 @@ section p {
     }
 
     section p {
-        font-size: 14px; /* Adjust font size for smaller screens */
-        line-height: 1.5; /* Adjust line height for readability */
-        margin: 5px 0; /* Adjust margin for smaller screens */
+        font-size: 14px; 
+        line-height: 1.5;
+        margin: 5px 0; 
     }
 
     header nav ul li a {
@@ -148,8 +148,8 @@ section p {
     }
 
     header nav ul li.logo a {
-        font-size: 1.2em; /* Adjust logo font size for smaller screens */
-        padding: 5px 8px; /* Adjust padding for the logo on smaller screens */
+        font-size: 1.2em; 
+        padding: 5px 8px; 
     }
 }
 
