@@ -1,0 +1,175 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light Gray */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header and Navigation Styling */
+header {
+    background-color: #b0d7dc; /* Light blue background for the header */
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px 0; /* Reduce the padding to make the header thinner */
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: blue; /* Dark text color */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Adjust padding to match the header's thinner size */
+    display: block;
+}
+
+header nav ul li a:hover, header nav ul li a.active {
+    background-color: #0073e6; /* Dark blue background on hover */
+    color: white; /* White text on hover */
+    border-radius: 4px;
+}
+
+header nav ul li.logo a {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 5px 10px; /* Adjust padding to match the header's thinner size */
+}
+/*PROJECTS*/
+/* Projects Section Styling */
+#projects {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+#projects h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e0f7fa; /* Soft Blue */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.project-details {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.project-details h3 {
+    margin: 10px 0 5px 0;
+}
+
+.project-details p {
+    font-size: 14px;
+    margin: 5px 0 15px 0;
+}
+
+.project-button {
+    background-color: #0073e6; /* Dark Blue */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.project-button:hover {
+    background-color: #005bb5; /* Darker Blue */
+}
+/*FOOTER*/
+footer {
+    background-color: #b0d7dc; /* Blue background for the footer */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+footer nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer nav ul li {
+    margin: 5px 10px;
+}
+
+footer nav ul li a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+footer nav ul li a:hover, footer nav ul li a.active {
+    background-color: #0073e6;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer nav ul li {
+        margin: 5px 0;
+    }
+
+    .project-card {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+}
