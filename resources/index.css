@@ -9,7 +9,7 @@ body{
     width: 100%;
     z-index: 99;
     background-color: #b0d7dc;
-    padding: 30px;
+    padding: 10px;
   }
 .head-nav h1{
     display: inline;
@@ -37,7 +37,7 @@ body{
     height: 0;
     clear: both;
  }
- 
+ /*rd*/
  @media only screen and (max-width: 800px) {
    h1 {
      display: none;
@@ -63,7 +63,7 @@ body{
     border-radius: 8px;
 }
 
-section hh2 {
+section h2 {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -97,7 +97,7 @@ section p {
 }
 
 .list-column ul li {
-    background: #e0f7fa; /* Soft Blue */
+    background: #e0f7fa; 
     margin: 5px 0;
     padding: 10px;
     border-radius: 4px;
@@ -115,7 +115,38 @@ section p {
     }
 }
 
+footer {
+    background-color: #b0d7dc; /* Blue background for the footer */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
 
+footer nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
+footer nav ul li {
+    margin: 5px 10px;
+}
 
+footer nav ul li a {
 
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 45px;
+    display: inline-block;
+}
+
+footer nav ul li a:hover, footer nav ul li a.active {
+    background-color: #005bb5;
+    border-radius: 4px;
+}
