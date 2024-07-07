@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: Calibri, Helvetica, sans-serif;
     background-color: #f5f5f5; /* Light Gray */
     color: #333;
     line-height: 1.6;
@@ -10,15 +10,13 @@ html, body {
 
 /* Header and Navigation Styling */
 header {
-    background-color: #b0d7dc; /* Light blue background for the header */
+    background-color: #b0d7dc; /* Blue background for the footer */
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
+    bottom: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 5px 0; /* Reduce the padding to make the header thinner */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header nav ul {
@@ -26,32 +24,27 @@ header nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 5px 10px;
 }
 
 header nav ul li a {
-    color: blue; /* Dark text color */
+
+    color: blue;
+    font-weight: bold;
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px; /* Adjust padding to match the header's thinner size */
-    display: block;
+    padding: 5px 45px;
+    display: inline-block;
 }
 
-header nav ul li a:hover, header nav ul li a.active {
-    background-color: #0073e6; /* Dark blue background on hover */
-    color: white; /* White text on hover */
+header nav ul li a:hover, footer nav ul li a.active {
+    background-color: #0073e6;
+    color: white;
     border-radius: 4px;
-}
-
-header nav ul li.logo a {
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 5px 10px; /* Adjust padding to match the header's thinner size */
 }
 /*PROJECTS*/
 /* Projects Section Styling */
@@ -62,6 +55,7 @@ header nav ul li.logo a {
 }
 
 #projects h2 {
+    visibility: hidden;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -114,12 +108,9 @@ footer {
     background-color: #b0d7dc; /* Blue background for the footer */
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
 }
 
 footer nav ul {
@@ -136,11 +127,12 @@ footer nav ul li {
 }
 
 footer nav ul li a {
+
     color: blue;
     font-weight: bold;
     text-decoration: none;
-    padding: 10px 15px;
-    display: block;
+    padding: 5px 45px;
+    display: inline-block;
 }
 
 footer nav ul li a:hover, footer nav ul li a.active {

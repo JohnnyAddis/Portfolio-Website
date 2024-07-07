@@ -185,7 +185,7 @@ footer nav ul li a {
 }
 
 footer nav ul li a:hover, footer nav ul li a.active {
-    background-color: #005bb5;
+    background-color: #0073e6;
     color: white;
     border-radius: 4px;
 }
