@@ -3,46 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = 'stylesheet' type = 'text/css' href = '/resources/styles.css'>
+    <link rel = 'stylesheet' type = 'text/css' href = '/resources/index.css'>
     <title>Johnny Addis</title>
 </head>
 <body>
     <header>
-        <nav>
-            <p>Johnny Addis</p>
-            <ol class = 'nav list'>
+        <nav class = 'head-nav'>
+            <h1>Johnny Addis</h1>
+            <ul>
                 <li><a>About Me</a></li>
                 <li><a href ='/views/projects.html'>Projects</a></li>
-                <li><a href = '/views/contact.html'>Send me a message!</a></li>
-            </ol>
+                <li class = 'push'><a href = '/views/contact.html'>Send me a message!</a></li>
+            </ul>
         </nav>
     </header>
-    <article id = 'about me'>
-        <div class = 'about'>
+    <section class = 'about'>
             <h1>A Little About Me</h1>
             <p>Hello! I'm Johnny Addis, a dedicated and passionate Computer Science major at Ohio State University. I have a strong enthusiasm for learning, 
                 especially when it comes to solving unique and complex problems. My academic journey and personal interests have given me a deep appreciation
-                 for programming, math, and data analysis. I am looking for a Summer 2025 internship.</p>
+                 for programming, math, and data analysis. I am searching for a Summer 2025 internship.</p>
                  <p>Ever since I started my journey in computer science, I've been driven by the desire to understand how things work and how they can be improved. Whether it's through coding, tackling challenging math problems, or analyzing data to uncover hidden patterns, I thrive on finding innovative solutions and making sense of complexity.</p>
-        </div>
-        <div id = 'experience'>
+    </section>
+        <section id = 'experience'>
             <h2>Experience</h2>
-            <p>This past summer, I was a Digital Banking Intern at CIBC in Chicago. ... Redwood...</p>
-        </div>
-        <div id = 'skills/coursework'>
-            <h3>Skills/Relevant Coursework</h3>
-            <p>Languages</p>
-            <p>Technologies/Tools</p>
-            <p>Coursework</p>
-        </div>
-    </article>
-    <footer>
-        <nav>
+            <p>This past summer, I was a Digital Banking Intern at CIBC in Chicago. I worked in various roles on analytics and product management for CIBC digital banking platforms. ... Redwood...</p>
+        </section>
+        <section id="skills-coursework">
+            <h2>Skills/Coursework</h2>
+            <div class="container">
+                <div class="list-column">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                        <li>C</li>
+                        <li>x86-64</li>
+                    </ul>
+                </div>
+                <div class="list-column">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>React.js</li>
+                        <li>Node.js</li>
+                        <li>NumPy & Pandas</li>
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+                <div class="list-column">
+                    <h3>Relevant Courses</h3>
+                    <ul>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Low Level Promgramming & Computer Organization</li>
+                        <li>Java Devlopment and Design</li>
+                        <li>Design, Development, and Documentation of Web Applications</li>
+                        <li>Linear Algebra</li>
+                        <li>Discrete Structures</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    <footer class = 'footer'>
+        <nav class = 'bottom-list'>
             <ol>
-               
+               <li><a href = 'johnnyaddis23@gmail.com'>johnnyaddis23@gmail.com</a></li>
+               <li>224-326-5159</li>
+               <li><a href = 'www.linkedin.com/in/jonathan-addis'>LinkedIn</a></li>
+               <li><a href = 'https://github.com/JohnnyAddis'>GitHub</a></li>
             </ol>
         </nav>
     </footer>
-    
 </body>
 </html>
