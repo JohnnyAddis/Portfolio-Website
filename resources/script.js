@@ -1,16 +1,14 @@
-//Human is player 'X', computer is player 'O'. Human goes first.
 document.addEventListener('DOMContentLoaded', () => {
     const cells = document.querySelectorAll('.cell');
     const restartButton = document.getElementById('restart');
     const message = document.getElementById('message');
-    message.style.color = 'black';
     let currentPlayer = 'X';
     let gameState = Array(9).fill(null);
     let gameActive = true;
 
-    //all possible ways to win
+    //possible ways to win
     const winningConditions = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], 
         [0, 3, 6], [1, 4, 7], [2, 5, 8], 
         [0, 4, 8], [2, 4, 6]             
     ];
@@ -18,69 +16,118 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleCellClick(event) {
         const cell = event.target;
         const cellIndex = parseInt(cell.getAttribute('data-index'));
-        //if game hasn't started, or cell is already selected, or computer's turn, do nothing.
+        //if cell isn't empty, or game hasn't started, or computer's turn, do nothing.
         if (gameState[cellIndex] !== null || !gameActive || currentPlayer === 'O') return;
 
-        //filling in cell
         gameState[cellIndex] = currentPlayer;
         cell.textContent = currentPlayer;
         cell.style.fontWeight = 'bold';
 
-        //check for win/tie, if not switch move to computer
-        if (checkWin()) {
-            message.textContent = `Player ${currentPlayer} Wins!`;
-            message.style.color = 'green';
-            gameActive = false;
-        } else if (gameState.every(cell => cell !== null)) {
-            message.textContent = "Cat's Game!";
-            gameActive = false;
-        } else {
-            currentPlayer = 'O';
-            message.textContent = `Player ${currentPlayer}'s turn`;
-            //delay computer's move a little
-            setTimeout(computerMove, 500); 
-        }
+        //check for a winner/draw
+        if (checkWinner() || checkDraw()) return;
+
+        currentPlayer = 'O';
+        message.textContent = `Player ${currentPlayer}'s turn`;
+        //delay computer move for a better experience
+        setTimeout(computerMove, 500);
     }
 
     function computerMove() {
         if (!gameActive) return;
 
-        // Computer just chooses a random cell
-        const emptyCells = gameState.map((cell, index) => cell === null ? index : null).filter(index => index !== null);
-        const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        const bestMove = getBestMove();
+        gameState[bestMove] = currentPlayer;
+        cells[bestMove].textContent = currentPlayer;
+        cells[bestMove].style.fontWeight = 'bold';
 
-        gameState[randomIndex] = currentPlayer;
-        cells[randomIndex].textContent = currentPlayer;
-        cells[randomIndex].style.fontWeight = 'bold';
+        if (checkWinner() || checkDraw()) return;
 
-        //almsot exact same code as handleClick (refactor?)
-        if (checkWin()) {
-            message.textContent = `Player ${currentPlayer} Wins!`;
-            message.style.color = 'red';
-            gameActive = false;
-        } else if (gameState.every(cell => cell !== null)) {
-            message.textContent = "Cat's Game!";
-            gameActive = false;
+        currentPlayer = 'X';
+        message.textContent = `Player ${currentPlayer}'s turn`;
+    }
+
+    //minimax algo
+    function getBestMove() {
+        let bestScore = -Infinity;
+        let move;
+        for (let i = 0; i < gameState.length; i++) {
+            if (gameState[i] === null) {
+                gameState[i] = 'O';
+                let score = minimax(gameState, 0, false);
+                gameState[i] = null;
+                if (score > bestScore) {
+                    bestScore = score;
+                    move = i;
+                }
+            }
+        }
+        return move;
+    }
+
+    function minimax(board, depth, isMaximizing) {
+        let result = checkWinnerImmediate(board);
+        if (result !== null) {
+            return result;
+        }
+
+        if (isMaximizing) {
+            let bestScore = -Infinity;
+            for (let i = 0; i < board.length; i++) {
+                if (board[i] === null) {
+                    board[i] = 'O';
+                    let score = minimax(board, depth + 1, false);
+                    board[i] = null;
+                    bestScore = Math.max(score, bestScore);
+                }
+            }
+            return bestScore;
         } else {
-            currentPlayer = 'X';
-            message.textContent = `Player ${currentPlayer}'s turn`;
+            let bestScore = Infinity;
+            for (let i = 0; i < board.length; i++) {
+                if (board[i] === null) {
+                    board[i] = 'X';
+                    let score = minimax(board, depth + 1, true);
+                    board[i] = null;
+                    bestScore = Math.min(score, bestScore);
+                }
+            }
+            return bestScore;
         }
     }
 
-    function checkWin() {
-        return winningConditions.some(condition => {
-            return condition.every(index => gameState[index] === currentPlayer);
-        });
+    function checkWinnerImmediate(board) {
+        for (const condition of winningConditions) {
+            const [a, b, c] = condition;
+            if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                return board[a] === 'O' ? 1 : -1;
+            }
+        }
+        if (board.every(cell => cell !== null)) {
+            return 0; // Draw
+        }
+        return null; // No winner yet
     }
-   
-//Didn't like the alerts
-    // function displayAlert(player){
-    //     if(player){
-    //         window.alert(`Player ${player} Wins!`);
-    //     }else{
-    //         window.alert("Cat's Game!");
-    //     }
-    // }
+
+    function checkWinner() {
+        for (const condition of winningConditions) {
+            const [a, b, c] = condition;
+            if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
+                message.textContent = `Player ${gameState[a]} wins!`;
+                gameActive = false;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function checkDraw() {
+        if (gameState.every(cell => cell !== null)) {
+            message.textContent = 'Draw!';
+            gameActive = false;
+            return true;
+        }
+        return false;
+    }
 
     function restartGame() {
         gameState = Array(9).fill(null);
@@ -88,9 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPlayer = 'X';
         cells.forEach(cell => cell.textContent = '');
         message.textContent = `Player ${currentPlayer}'s turn`;
-        message.style.color = 'black';
     }
-
+    //add event listeners for all cells and restart button
     cells.forEach(cell => cell.addEventListener('click', handleCellClick));
     restartButton.addEventListener('click', restartGame);
 
