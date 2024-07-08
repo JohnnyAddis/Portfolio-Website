@@ -53,20 +53,53 @@ header nav ul li a:hover, header nav ul li a.active {
 
 
  /*rd*/
- @media only screen and (max-width: 800px) {
+ @media only screen and (max-width: 768px) {
    h1 {
      display: none;
    }
  
-   li {
+    nav li {
      margin-right: 10px;
+     height: 15px;
    }
  
    a {
-     width: 100px;
+     width: 95px;
      padding: 5px 0;
-     font-size: 16px;
+     font-size: 14px;
    }
+   
+    #skills-coursework .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+        align-items: center;
+        text-wrap: auto;
+    }
+
+    footer nav ul li {
+        margin: 10px 5p;
+    }
+
+    section p {
+        font-size: 14px; 
+        line-height: 2;
+        margin: 5px 5px; 
+        padding: 0px 25px 0px 20px
+    }
+
+    header nav ul li a {
+        padding: 5px 8px; /* Adjust padding for navigation links on smaller screens */
+    }
+
+    header nav ul li.logo a {
+        font-size: 1.2em; 
+        padding: 5px 8px; 
+    }
+
  }
 
  section {
@@ -122,36 +155,7 @@ section p {
     background: #b2ebf2;
 }
 
-@media (max-width: 768px) {
-    #skills-coursework .container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    footer nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer nav ul li {
-        margin: 5px 0;
-    }
-
-    section p {
-        font-size: 14px; 
-        line-height: 1.5;
-        margin: 5px 0; 
-    }
-
-    header nav ul li a {
-        padding: 5px 8px; /* Adjust padding for navigation links on smaller screens */
-    }
-
-    header nav ul li.logo a {
-        font-size: 1.2em; 
-        padding: 5px 8px; 
-    }
-}
 
 footer {
     background-color: #b0d7dc; /* Blue background for the footer */
