@@ -138,19 +138,11 @@ footer nav ul li a:hover, footer nav ul li a.active {
     }
 
     header nav ul li {
-        margin: 5px 0;
-    }
-
-    footer nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer nav ul li {
         margin: 0px 0;
     }
-
-   
+    footer{
+        visibility: hidden;
+    }   
 }
 
 
